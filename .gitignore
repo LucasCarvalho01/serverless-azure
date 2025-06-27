@@ -1,4 +1,4 @@
-.vscode/*
+.vscode/
 
 local.settings.json
 __pycache__/
