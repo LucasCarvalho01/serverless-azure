@@ -1,0 +1,28 @@
+{
+  "version": "2.0",
+  "logging": {
+    "applicationInsights": {
+      "samplingSettings": {
+        "isEnabled": true,
+        "excludedTypes": "Request"
+      },
+      "aggregation": {
+        "isEnabled": true,
+        "flushTimeout": "00:00:30"
+      }
+    },
+    "logLevel": {
+      "default": "Warning",
+      "Function": "Information",
+      "Host.Results": "Information"
+    }
+  },
+  "healthMonitor": {
+    "enabled": false
+  },
+  "functionTimeout": "00:00:10",
+  "extensionBundle": {
+    "id": "Microsoft.Azure.Functions.ExtensionBundle",
+    "version": "[4.*, 5.0.0)"
+  }
+}

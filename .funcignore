@@ -1,0 +1,34 @@
+# Ignorar metadados do Git e VSCode
+.git*
+.vscode/*
+
+# Ignorar configurações locais e cache Python
+local.settings.json
+__pycache__/
+*.pyc
+
+# Ignorar arquivos e pastas do Azurite
+__azurite_db_blob__.json
+__azurite_db_blob_extent__.json
+__azurite_db_queue__.json
+__azurite_db_queue_extent__.json
+__azurite_db_table__.json
+__blobstorage__/
+__queuestorage__/
+AzuriteConfig/ 
+
+# Ignorar pastas de ambiente virtual comuns (adicione a sua se for diferente)
+.venv/
+env/
+venv/
+.env/
+
+# Ignorar arquivos de teste ou outros artefatos de build locais, se houver
+tests/
+*.zip
+*.tar.gz
+*.pytest_cache/
+.tox/
+*.jpg
+*.jpeg
+*.png
