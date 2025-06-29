@@ -3,7 +3,7 @@ name: Deploy Image Processor App Infra
 on:
   push:
     branches:
-      - dev
+      - main
     paths:
       - 'bicep/**'
 

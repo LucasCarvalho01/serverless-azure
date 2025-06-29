@@ -74,6 +74,8 @@ func azure functionapp publish <your-function-app-name>
 ### Deploy com GitHub Actions:
 O projeto está configurado para CI/CD automático via GitHub Actions. Commits na branch principal acionam o deployment automaticamente.
 
+Existe também um workflow para deploy da infraestrutura usando Bicep. Commits na branch principal que alterem arquivos na pasta `bicep/` acionam o deploy da infraestrutura.
+
 ## Endpoints da API
 
 Após o deploy, os seguintes endpoints estarão disponíveis:
@@ -87,12 +89,12 @@ Após o deploy, os seguintes endpoints estarão disponíveis:
 
 ```bash
 # Gerar URL para upload
-curl -X POST https://<your-app>.azurewebsites.net/api/save \
+curl -X POST https://<app>.azurewebsites.net/api/save \
   -H "Content-Type: application/json" \
   -d '{"key": "minha-imagem.jpg"}'
 
 # Edição de imagem
-curl -X POST https://<your-app>.azurewebsites.net/api/edit \
+curl -X POST https://<app>.azurewebsites.net/api/edit \
   -H "Content-Type: application/json" \
   -d '{
     "key": "minha-imagem.jpg", 
@@ -105,7 +107,7 @@ curl -X POST https://<your-app>.azurewebsites.net/api/edit \
   }'
 
 # Download de imagem processada
-curl -X GET https://<your-app>.azurewebsites.net/api/images/edited-minha-imagem.jpg
+curl -X GET https://<app>.azurewebsites.net/api/images/edited-minha-imagem.jpg
 ```
 
 ## Containers do Azure Blob Storage
