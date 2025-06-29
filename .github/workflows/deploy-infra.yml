@@ -1,0 +1,36 @@
+name: Deploy Image Processor App Infra
+
+on:
+  push:
+    branches:
+      - main
+    paths:
+      - 'bicep/**'
+
+  workflow_dispatch:
+
+permissions:
+  id-token: write
+  contents: read
+
+jobs:
+  deploy_infrastructure:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Log in to Azure
+        uses: azure/login@v1
+        with:
+          creds: ${{ secrets.AZURE_CREDENTIALS }}
+
+      - name: Deploy Bicep template
+        uses: azure/arm-deploy@v1
+        with:
+          subscriptionId: ${{ secrets.AZURE_SUBSCRIPTION_ID }}
+          resourceGroupName: ${{ secrets.AZURE_RESOURCE_ID }}  
+          template: ./bicep/main.bicep
+          parameters: ./bicep/main.parameters.json
+          failOnStdErr: false
